@@ -1,0 +1,6 @@
+{
+  "name": "Sayings Database",
+  "description": "An offline-first browser for Sayings databases, featuring index lookups, case-insensitive multi-string keyword searches, daily offset tuning for 'Saying of the Day', and homescreen pin shortcut launcher support.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
