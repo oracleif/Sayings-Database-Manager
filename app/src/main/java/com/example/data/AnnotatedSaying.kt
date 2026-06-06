@@ -5,5 +5,5 @@ data class AnnotatedSaying(
     val annotation: String?
 ) {
     val displayFormatted: String
-        get() = if (annotation.isNullOrBlank()) content else "$content [$annotation]"
+        get() = if (annotation.isNullOrBlank()) content else "$content\n[$annotation]"
 }

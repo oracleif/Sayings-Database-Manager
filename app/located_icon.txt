@@ -1,0 +1,5 @@
+=== LOCATING UPLOADED ICON ===
+Searching in root: /app/applet/app/.
+Searching in root: /app/applet/app
+Searching in root: /
+=== END OF LOCATING ===

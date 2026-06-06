@@ -129,6 +129,7 @@ fun SayingsAppScreen(viewModel: SayingsViewModel) {
     var showDbSelectorDialog by remember { mutableStateOf(false) }
     var showImportDialog by remember { mutableStateOf(false) }
     var showIndexLookupDialog by remember { mutableStateOf(false) }
+    var showAboutDialog by remember { mutableStateOf(false) }
 
     var showMappingDialog by remember { mutableStateOf(false) }
     var allCsvParsedRows by remember { mutableStateOf<List<List<String>>>(emptyList()) }
@@ -710,9 +711,97 @@ fun SayingsAppScreen(viewModel: SayingsViewModel) {
                         Spacer(modifier = Modifier.width(8.dp))
                         Text("Import New Database (.txt)")
                     }
+
+                    OutlinedButton(
+                        onClick = {
+                            showDbSelectorDialog = false
+                            showAboutDialog = true
+                        },
+                        modifier = Modifier.fillMaxWidth(),
+                        shape = RoundedCornerShape(12.dp)
+                    ) {
+                        Icon(imageVector = Icons.Default.Info, contentDescription = null)
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text("About App (FLOSS / GPL v3)")
+                    }
                 }
             }
         }
+    }
+
+    if (showAboutDialog) {
+        AlertDialog(
+            onDismissRequest = { showAboutDialog = false },
+            title = {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Info,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.primary
+                    )
+                    Text(
+                        text = "About Sayings Database",
+                        style = MaterialTheme.typography.titleLarge,
+                        fontWeight = FontWeight.Bold
+                    )
+                }
+            },
+            text = {
+                val scrollState = rememberScrollState()
+                Column(
+                    modifier = Modifier
+                        .verticalScroll(scrollState)
+                        .padding(vertical = 4.dp),
+                    verticalArrangement = Arrangement.spacedBy(12.dp)
+                ) {
+                    Text(
+                        text = "Version 1.0.0",
+                        style = MaterialTheme.typography.labelLarge,
+                        fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.secondary
+                    )
+                    
+                    Text(
+                        text = "This application allows you to load, organize, and browse collections of sayings, quotes, fortune cookies, aphorisms, or technical tips to create your own personalized 'Message of the Day' through a home screen shortcut, as well as retrieve messages selected randomly, by index number, or via keyword search.",
+                        style = MaterialTheme.typography.bodyMedium
+                    )
+
+                    Divider()
+
+                    Text(
+                        text = "Free & Open Source Software (FLOSS)",
+                        style = MaterialTheme.typography.titleSmall,
+                        fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.primary
+                    )
+
+                    Text(
+                        text = "This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.",
+                        style = MaterialTheme.typography.bodySmall
+                    )
+
+                    Text(
+                        text = "This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for details.",
+                        style = MaterialTheme.typography.bodySmall
+                    )
+
+                    Text(
+                        text = "Copyright (C) 2026 github.com/oracleif\nLicensed under GNU GPL v3.",
+                        style = MaterialTheme.typography.labelSmall,
+                        fontWeight = FontWeight.Medium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+            },
+            confirmButton = {
+                TextButton(onClick = { showAboutDialog = false }) {
+                    Text("Close")
+                }
+            }
+        )
     }
 
     // Specific Index Saying Lookup Dialog
