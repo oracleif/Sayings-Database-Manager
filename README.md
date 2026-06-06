@@ -1,21 +1,23 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Sayings Database
 
-# Run and deploy your AI Studio app
+An offline-first Android application designed to let people easily load, organize, and browse custom databases of sayings, fortunes, aphorisms, tech tips, or quotes. This lets you create your own personalized "message of the day" (or "Saying of the Day") on your Android device with a beautiful widget, searchable browse page, and multiple databases!
 
-This contains everything you need to run your app locally.
+## Features
 
-View your app in AI Studio: https://ai.studio/apps/1df0f72b-d4f5-4403-a954-50e40476acdd
+- **Multi-Database Support**: Create, rename, delete, and switch between completely separate collections or categories of text.
+- **Robust CSV & JSON Import**: Seamlessly import your own files. Includes raw CSV (with or without headers), standard nested/flat JSON arrays, newline-delimited JSON (NDJSON / JSON Lines), or mixed JSON stream content.
+- **Flexible Field Mapping**: Map columns or keys dynamically from your CSV or JSON files to the sayings body and metadata.
+- **Search & Filter**: Find entries quickly with a case-insensitive, multi-string keyword search.
+- **Saying of the Day (SotD)**: Keeps track of your daily message. Includes index adjustment and daily offset tuning to keep your daily message exactly where you want it.
+- **Homescreen Widget**: Put your favorites directly on your launcher with a custom interactive homescreen widget.
+- **Homescreen Shortcut**: Pin shortcuts on your home screen for any of your custom databases for instant access.
 
-## Run Locally
+## License
 
-**Prerequisites:**  [Android Studio](https://developer.android.com/studio)
+This project is Free and Open Source Software (FLOSS) released under the **GNU General Public License v3 (GPL v3)**. 
 
+See the [LICENSE](./LICENSE) file for the full terms and conditions.
 
-1. Open Android Studio
-2. Select **Open** and choose the directory containing this project
-3. Allow Android Studio to fix any incompatibilities as it imports the project.
-4. Create a file named `.env` in the project directory and set `GEMINI_API_KEY` in that file to your Gemini API key (see `.env.example` for an example)
-5. Remove this line from the app's `build.gradle.kts` file: `signingConfig = signingConfigs.getByName("debugConfig")`
-6. Run the app on an emulator or physical device
+### GPL v3 Compliance
+
+All source files are copyrighted and can be redistributed or modified under the terms of the GNU GPL v3.
